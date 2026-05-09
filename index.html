@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar" id="topbar"></header>
+      <main class="page" id="page"></main>
+      <aside class="toast-stack" id="toast-stack" aria-live="polite"></aside>
+    </div>
+
+    <template id="auth-card-template">
+      <!-- Full screen fixed container to hide the topbar and take over the page -->
+      <section class="auth-shell" style="position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; gap: 40px; background: transparent url('/bg.jpg') no-repeat center/cover; padding: 40px 10%;">
+        
+        <div class="hero-left" style="flex: 1; display: flex; align-items: center; justify-content: flex-start; padding-left: 5vw;">
+          <h1 style="font-size: clamp(6rem, 12vw, 12rem); font-family: Georgia, 'Times New Roman', serif; color: white; font-weight: bold; margin: 0; text-shadow: 0 8px 32px rgba(0,0,0,0.4); letter-spacing: -0.04em;">Pulse</h1>
+        </div>
+
+        <div class="auth-card" style="width: 100%; max-width: 420px; position: relative; flex-shrink: 0;"></div>
+      </section>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

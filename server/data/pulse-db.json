@@ -1,0 +1,210 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "username": "maya",
+      "email": "maya@pulse.app",
+      "password": "Pulse123",
+      "displayName": "Maya Chen",
+      "bio": "Building thoughtful products and chasing fast feedback loops.",
+      "avatarColor": "#d85f3d",
+      "createdAt": "2026-04-13T13:16:32.940Z"
+    },
+    {
+      "id": "u2",
+      "username": "rio",
+      "email": "rio@pulse.app",
+      "password": "Pulse123",
+      "displayName": "Rio Alvarez",
+      "bio": "Design systems, motion studies, and deeply caffeinated mornings.",
+      "avatarColor": "#1f7a8c",
+      "createdAt": "2026-04-12T17:16:32.940Z"
+    },
+    {
+      "id": "u3",
+      "username": "nina",
+      "email": "nina@pulse.app",
+      "password": "Pulse123",
+      "displayName": "Nina Brooks",
+      "bio": "Ops-minded engineer who loves tidy pipelines and cleaner dashboards.",
+      "avatarColor": "#52734d",
+      "createdAt": "2026-04-11T13:16:32.940Z"
+    },
+    {
+      "id": "u4",
+      "username": "saul",
+      "email": "saul@pulse.app",
+      "password": "Pulse123",
+      "displayName": "Saul Okafor",
+      "bio": "Turning product strategy into launch plans and storytelling.",
+      "avatarColor": "#7458a6",
+      "createdAt": "2026-04-10T05:16:32.940Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "p1",
+      "userId": "u2",
+      "content": "Quick win from today: swapped a clunky notification drawer for a lighter inline stream and support tickets dropped almost instantly.",
+      "createdAt": "2026-04-18T10:16:32.940Z",
+      "updatedAt": "2026-04-18T10:16:32.940Z",
+      "deleted": false
+    },
+    {
+      "id": "p2",
+      "userId": "u3",
+      "content": "A good feed feels obvious only after the hard work. Chronological, fast, mobile-friendly, and no mystery meat ranking.",
+      "createdAt": "2026-04-18T07:16:32.940Z",
+      "updatedAt": "2026-04-18T07:16:32.940Z",
+      "deleted": false
+    },
+    {
+      "id": "p3",
+      "userId": "u4",
+      "content": "Planning note: when every interaction becomes an event, the UI starts feeling calm because the heavy lifting has somewhere else to go.",
+      "createdAt": "2026-04-17T19:16:32.940Z",
+      "updatedAt": "2026-04-17T19:16:32.940Z",
+      "deleted": false
+    },
+    {
+      "id": "p4",
+      "userId": "u1",
+      "content": "Sketching a new profile layout tonight. Want the numbers to feel clear without making the page feel like an analytics dashboard.",
+      "createdAt": "2026-04-17T15:16:32.940Z",
+      "updatedAt": "2026-04-17T15:16:32.940Z",
+      "deleted": false
+    },
+    {
+      "id": "p5",
+      "userId": "u2",
+      "content": "If a settings page saves the moment you click, it has to feel trustworthy. Microcopy matters more than people think.",
+      "createdAt": "2026-04-17T05:16:32.940Z",
+      "updatedAt": "2026-04-17T05:16:32.940Z",
+      "deleted": false
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "postId": "p1",
+      "userId": "u3",
+      "content": "That trade-off makes total sense. Speed feels like a feature, not a benchmark.",
+      "createdAt": "2026-04-18T10:40:32.940Z",
+      "deleted": false
+    },
+    {
+      "id": "c2",
+      "postId": "p4",
+      "userId": "u2",
+      "content": "Would love to see that layout once you land on a stat treatment.",
+      "createdAt": "2026-04-17T16:16:32.940Z",
+      "deleted": false
+    }
+  ],
+  "likes": [
+    {
+      "id": "l1",
+      "userId": "u1",
+      "postId": "p1",
+      "createdAt": "2026-04-18T10:22:32.940Z"
+    },
+    {
+      "id": "l2",
+      "userId": "u3",
+      "postId": "p1",
+      "createdAt": "2026-04-18T10:28:32.940Z"
+    },
+    {
+      "id": "l3",
+      "userId": "u2",
+      "postId": "p2",
+      "createdAt": "2026-04-18T07:46:32.940Z"
+    },
+    {
+      "id": "l4",
+      "userId": "u4",
+      "postId": "p3",
+      "createdAt": "2026-04-17T19:46:32.940Z"
+    }
+  ],
+  "follows": [
+    {
+      "id": "f1",
+      "followerId": "u1",
+      "followingId": "u2",
+      "createdAt": "2026-04-14T13:16:32.940Z"
+    },
+    {
+      "id": "f2",
+      "followerId": "u1",
+      "followingId": "u3",
+      "createdAt": "2026-04-14T13:16:32.940Z"
+    },
+    {
+      "id": "f3",
+      "followerId": "u2",
+      "followingId": "u1",
+      "createdAt": "2026-04-14T19:16:32.940Z"
+    },
+    {
+      "id": "f4",
+      "followerId": "u4",
+      "followingId": "u1",
+      "createdAt": "2026-04-15T03:16:32.940Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n1",
+      "recipientId": "u1",
+      "senderId": "u2",
+      "type": "comment",
+      "message": "Rio commented: \"Would love to see that layout once you land on a stat treatment.\"",
+      "postId": "p4",
+      "isRead": false,
+      "createdAt": "2026-04-17T16:16:32.940Z"
+    },
+    {
+      "id": "n2",
+      "recipientId": "u1",
+      "senderId": "u4",
+      "type": "follow",
+      "message": "Saul started following you",
+      "postId": null,
+      "isRead": false,
+      "createdAt": "2026-04-15T03:16:32.940Z"
+    }
+  ],
+  "preferences": {
+    "u1": {
+      "notifyOnLike": true,
+      "notifyOnComment": true,
+      "notifyOnFollow": true,
+      "emailNotifications": false,
+      "realtimeNotifications": true
+    },
+    "u2": {
+      "notifyOnLike": true,
+      "notifyOnComment": true,
+      "notifyOnFollow": true,
+      "emailNotifications": false,
+      "realtimeNotifications": true
+    },
+    "u3": {
+      "notifyOnLike": true,
+      "notifyOnComment": true,
+      "notifyOnFollow": true,
+      "emailNotifications": false,
+      "realtimeNotifications": true
+    },
+    "u4": {
+      "notifyOnLike": true,
+      "notifyOnComment": true,
+      "notifyOnFollow": true,
+      "emailNotifications": false,
+      "realtimeNotifications": true
+    }
+  },
+  "sessions": [],
+  "queue": []
+}
