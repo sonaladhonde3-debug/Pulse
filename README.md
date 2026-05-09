@@ -44,48 +44,84 @@
 - **Task Queue**: [Celery](https://docs.celeryq.dev/)
 - **WebSockets**: [Django Channels](https://channels.readthedocs.io/) & [Daphne](https://github.com/django/daphne)
 
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-Ensure you have the following installed:
 - Node.js (v18 or higher)
 - pnpm (v8 or higher)
 - Python 3.10+
-- PostgreSQL
+- PostgreSQL (or SQLite for quick testing)
 - Redis
 
-### Quick Setup
+### PART 1: Backend Setup
 
-#### 1. Backend Setup
-1. Navigate to the backend directory and create a virtual environment:
+1. **Create and Activate Virtual Environment:**
    ```bash
    cd backend
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
-2. Install dependencies:
+
+2. **Install Dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
-3. Set up the PostgreSQL database and `.env` file (refer to `DJANGO_BACKEND_SETUP.md` for detailed instructions).
-4. Run migrations and start the backend services (Django server, Redis, Celery worker, and Celery Beat).
 
-#### 2. Frontend Setup
-1. Navigate to the client directory:
+3. **Set Up PostgreSQL (Optional but Recommended):**
+   ```sql
+   CREATE DATABASE social_media_db;
+   CREATE USER social_user WITH PASSWORD 'SecurePassword123!';
+   ALTER ROLE social_user SET client_encoding TO 'utf8';
+   ALTER ROLE social_user SET default_transaction_isolation TO 'read committed';
+   ALTER ROLE social_user SET default_transaction_deferrable TO on;
+   ALTER ROLE social_user SET timezone TO 'UTC';
+   GRANT ALL PRIVILEGES ON DATABASE social_media_db TO social_user;
+   ```
+   *(If you prefer SQLite for quick testing, skip this and uncomment the SQLite DB config in `.env`)*
+
+4. **Environment Variables:**
+   Ensure your `backend/.env` file is set up correctly (see provided `.env.example`). Key configurations include `DB_ENGINE`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `REDIS_URL`, and `JWT_SECRET_KEY`.
+
+5. **Run Migrations & Create Superuser:**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
+
+6. **Run Development Services (in separate terminals):**
+   - **Terminal 1 - Django Server:** `python manage.py runserver`
+   - **Terminal 2 - Redis:** `redis-server`
+   - **Terminal 3 - Celery Worker:** `celery -A backend worker -l info`
+   - **Terminal 4 - Celery Beat:** `celery -A backend beat -l info`
+
+### PART 2: Frontend Setup
+
+1. **Navigate to the frontend directory:**
    ```bash
    cd client
    ```
-2. Install dependencies:
+
+2. **Environment Variables:**
+   Create a `.env.local` file in the frontend root:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:8000
+   NEXT_PUBLIC_WS_URL=ws://localhost:8000/ws/notifications/
+   ```
+
+3. **Install Dependencies:**
    ```bash
    pnpm install
    ```
-3. Start the Vite development server:
+
+4. **Start the Development Server:**
    ```bash
    pnpm dev
    ```
 
-*For complete end-to-end setup instructions, please see [DJANGO_BACKEND_SETUP.md](DJANGO_BACKEND_SETUP.md) and [COMPLETE_SETUP_INSTRUCTIONS.md](COMPLETE_SETUP_INSTRUCTIONS.md).*
+---
 
 ## 🏗 Architecture & Data Flow
 
@@ -100,6 +136,8 @@ Pulse employs an event-driven, full-stack architecture optimized for high concur
 **Frontend Flow:**
 1. **State Management**: Local state is rapidly updated using client-side hooks to ensure a snappy user experience.
 2. **Live Updates**: WebSocket listeners catch real-time events from the backend to update feeds and notification badges seamlessly.
+
+---
 
 ## 📁 Project Structure
 
@@ -117,5 +155,3 @@ Pulse/
 ├── shared/              # Shared definitions
 └── package.json         # Root scripts & configuration
 ```
-
-
