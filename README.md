@@ -1,4 +1,4 @@
-# Pulse Frontend MVP
+# Pulse 
 
 This workspace now contains a self-contained browser app inspired by the `pulse_product_document.docx` product specification.
 
